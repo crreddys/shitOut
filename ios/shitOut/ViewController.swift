@@ -124,6 +124,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func save(_ sender: Any) {
+        if let image = self.imageView.image {
+            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        }
     }
     
     @IBAction func publish(_ sender: Any) {
