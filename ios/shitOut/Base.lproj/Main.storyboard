@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,12 +22,192 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cca-0Q-vJx">
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="6X3-jL-lRn">
+                                <rect key="frame" x="37" y="20" width="301" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Un2-a2-0MH">
+                                        <rect key="frame" x="0.0" y="0.0" width="39" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="lXc-vU-q0Y"/>
+                                        </constraints>
+                                        <state key="normal" title="Reset"/>
+                                        <connections>
+                                            <action selector="reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YRy-16-FRm"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W0o-D8-iso">
+                                        <rect key="frame" x="79" y="0.0" width="34" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="3HG-pv-okL"/>
+                                        </constraints>
+                                        <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="save:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6LQ-JJ-Tbq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3e-vZ-sY5">
+                                        <rect key="frame" x="153" y="0.0" width="51" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="8WP-Bp-FRl"/>
+                                        </constraints>
+                                        <state key="normal" title="Publish"/>
+                                        <connections>
+                                            <action selector="publish:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qMc-UP-v7I"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OwN-dg-ez8">
+                                        <rect key="frame" x="244" y="0.0" width="57" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="hE6-U2-rkp"/>
+                                        </constraints>
+                                        <state key="normal" title="Settings"/>
+                                        <connections>
+                                            <action selector="settings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ycb-1T-AXG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cca-0Q-vJx">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iwk-3f-jhl">
+                                <rect key="frame" x="1" y="587" width="220" height="80"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4q-py-eyP">
+                                        <rect key="frame" x="0.0" y="0.0" width="20" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="F3E-lt-Dpm"/>
+                                            <constraint firstAttribute="height" constant="80" id="kGx-J5-cCd"/>
+                                        </constraints>
+                                        <state key="normal" title="Black" image="Black"/>
+                                        <connections>
+                                            <action selector="colorPicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H3R-Z7-hlJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAq-XZ-FP5">
+                                        <rect key="frame" x="20" y="0.0" width="20" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="Sa1-jo-B5L"/>
+                                            <constraint firstAttribute="height" constant="80" id="hRy-kU-DSy"/>
+                                        </constraints>
+                                        <state key="normal" title="Brown" image="Brown"/>
+                                        <connections>
+                                            <action selector="colorPicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ikr-a7-SRG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ig1-zZ-QUf">
+                                        <rect key="frame" x="40" y="0.0" width="20" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="BWW-jj-2kf"/>
+                                            <constraint firstAttribute="width" constant="20" id="Rgl-3b-bHd"/>
+                                        </constraints>
+                                        <state key="normal" title="DarkGreen" image="DarkGreen"/>
+                                        <connections>
+                                            <action selector="colorPicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DoM-zd-bK4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nSn-vk-tZS">
+                                        <rect key="frame" x="60" y="0.0" width="20" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="7gq-iq-pi2"/>
+                                            <constraint firstAttribute="width" constant="20" id="MRG-PZ-Xp9"/>
+                                        </constraints>
+                                        <state key="normal" title="DarkOrange" image="DarkOrange"/>
+                                        <connections>
+                                            <action selector="colorPicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xg5-J9-05M"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSi-ta-GOi">
+                                        <rect key="frame" x="80" y="0.0" width="20" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="CSS-IT-cgZ"/>
+                                            <constraint firstAttribute="height" constant="80" id="rSC-QY-D1P"/>
+                                        </constraints>
+                                        <state key="normal" title="Grey" image="Grey"/>
+                                        <connections>
+                                            <action selector="colorPicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kMC-s1-Yws"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydp-kf-aYj">
+                                        <rect key="frame" x="100" y="0.0" width="20" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="4bC-CD-KeU"/>
+                                            <constraint firstAttribute="width" constant="20" id="phw-W2-Ozs"/>
+                                        </constraints>
+                                        <state key="normal" title="Blue" image="Blue"/>
+                                        <connections>
+                                            <action selector="colorPicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xo8-Z9-v7w"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K2l-11-cE6">
+                                        <rect key="frame" x="120" y="0.0" width="20" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="bpn-sb-jEB"/>
+                                            <constraint firstAttribute="width" constant="20" id="wnD-oM-zs8"/>
+                                        </constraints>
+                                        <state key="normal" title="LightBlue" image="LightBlue"/>
+                                        <connections>
+                                            <action selector="colorPicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tGd-Gv-KIe"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lXu-3W-C7a">
+                                        <rect key="frame" x="140" y="0.0" width="20" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="HQe-Kk-qnw"/>
+                                            <constraint firstAttribute="width" constant="20" id="U3b-pB-35p"/>
+                                        </constraints>
+                                        <state key="normal" title="LightGreen" image="LightGreen"/>
+                                        <connections>
+                                            <action selector="colorPicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DDj-BB-ra8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sLq-9W-dwI">
+                                        <rect key="frame" x="160" y="0.0" width="20" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="UDb-xG-64b"/>
+                                            <constraint firstAttribute="width" constant="20" id="YE3-BY-9wT"/>
+                                        </constraints>
+                                        <state key="normal" title="Red" image="Red"/>
+                                        <connections>
+                                            <action selector="colorPicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0u4-bC-ZUD"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uLZ-PL-9ql">
+                                        <rect key="frame" x="180" y="0.0" width="20" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="gkQ-xe-H0T"/>
+                                            <constraint firstAttribute="height" constant="80" id="wP6-Sp-C14"/>
+                                        </constraints>
+                                        <state key="normal" title="Yellow" image="Yellow"/>
+                                        <connections>
+                                            <action selector="colorPicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bJ0-qL-aWD"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NJP-LZ-ehH">
+                                        <rect key="frame" x="200" y="0.0" width="20" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="4DT-4H-RsX"/>
+                                            <constraint firstAttribute="height" constant="80" id="qZD-pP-RnH"/>
+                                        </constraints>
+                                        <state key="normal" title="Eraser" image="Eraser"/>
+                                        <connections>
+                                            <action selector="colorPicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mD4-Cv-SBf"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Cca-0Q-vJx" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="5h7-3D-LJT"/>
+                            <constraint firstItem="6X3-jL-lRn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="6oZ-db-PSv"/>
+                            <constraint firstItem="6X3-jL-lRn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8Di-20-2t1"/>
+                            <constraint firstItem="Cca-0Q-vJx" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="9Wg-ca-Xi8"/>
+                            <constraint firstItem="Iwk-3f-jhl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-15" id="Lpd-pG-Wcy"/>
+                            <constraint firstItem="Iwk-3f-jhl" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="PWK-l1-JrR"/>
+                            <constraint firstAttribute="trailing" secondItem="Cca-0Q-vJx" secondAttribute="trailing" id="d9m-7N-EBC"/>
+                            <constraint firstItem="Cca-0Q-vJx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vD8-jd-Wrh"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="ImageView" destination="8bC-Xf-vdC" id="d4p-1X-rt7"/>
@@ -38,4 +219,17 @@
             <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Black" width="53" height="332"/>
+        <image name="Blue" width="53" height="332"/>
+        <image name="Brown" width="53" height="332"/>
+        <image name="DarkGreen" width="53" height="332"/>
+        <image name="DarkOrange" width="53" height="332"/>
+        <image name="Eraser" width="55" height="167"/>
+        <image name="Grey" width="53" height="332"/>
+        <image name="LightBlue" width="53" height="332"/>
+        <image name="LightGreen" width="53" height="332"/>
+        <image name="Red" width="53" height="332"/>
+        <image name="Yellow" width="53" height="332"/>
+    </resources>
 </document>

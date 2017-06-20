@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     
     @IBOutlet weak var imageView: UIImageView!
     
@@ -18,8 +18,22 @@ class ViewController: UIViewController {
     var green: CGFloat = 0.0
     var blue: CGFloat = 0.0
     var brushWidth: CGFloat = 10.0
-//    var opacity: CGFloat = 1.0
+    //    var opacity: CGFloat = 1.0
     var swiped = false
+    
+    enum Colors : String {
+        case Black
+        case Brown
+        case DarkGreen
+        case DarkOrange
+        case Grey
+        case Blue
+        case LightBlue
+        case LightGreen
+        case Red
+        case Yellow
+        case Eraser
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,14 +87,56 @@ class ViewController: UIViewController {
         if !swiped {
             // draw a single point
             drawLineFrom(fromPoint: lastPoint, toPoint: lastPoint)
-        } 
+        }
     }
-
+    
+    @IBAction func colorPicked(_ sender: Any) {
+        let colorButton: UIButton = sender as! UIButton
+        if let colorPicked = colorButton.titleLabel?.text {
+            if colorPicked == Colors.Black.rawValue {
+                (red,green,blue) = (0,0,0)
+            }else if colorPicked == Colors.Brown.rawValue {
+                (red,green,blue) = (160.0 / 255.0, 82.0 / 255.0, 45.0 / 255.0)
+            }else if colorPicked == Colors.DarkGreen.rawValue {
+                (red,green,blue) = (102.0 / 255.0, 204.0 / 255.0, 0)
+            }else if colorPicked == Colors.DarkOrange.rawValue {
+                (red,green,blue) = (1.0, 102.0 / 255.0, 0)
+            }else if colorPicked == Colors.Grey.rawValue {
+                (red,green,blue) =  (105.0 / 255.0, 105.0 / 255.0, 105.0 / 255.0)
+            }else if colorPicked == Colors.Blue.rawValue {
+                (red,green,blue) = (0, 0, 1.0)
+            }else if colorPicked == Colors.LightBlue.rawValue {
+                (red,green,blue) = (51.0 / 255.0, 204.0 / 255.0, 1.0)
+            }else if colorPicked == Colors.LightGreen.rawValue {
+                (red,green,blue) =  (102.0 / 255.0, 1.0, 0)
+            }else if colorPicked == Colors.Red.rawValue {
+                (red,green,blue) = (1.0, 0, 0)
+            }else if colorPicked == Colors.Yellow.rawValue {
+                (red,green,blue) = (1.0, 1.0, 0)
+            }else if colorPicked == Colors.Eraser.rawValue {
+                (red,green,blue) = (1.0, 1.0, 1.0)
+            }
+        }
+    }
+    
+    @IBAction func reset(_ sender: Any) {
+        self.imageView.image = nil
+    }
+    
+    @IBAction func save(_ sender: Any) {
+    }
+    
+    @IBAction func publish(_ sender: Any) {
+    }
+    
+    @IBAction func settings(_ sender: Any) {
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 
