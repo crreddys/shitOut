@@ -9,16 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    
     @IBOutlet weak var imageView: UIImageView!
     
     var lastPoint = CGPoint.zero
     var red: CGFloat = 0.0
     var green: CGFloat = 0.0
     var blue: CGFloat = 0.0
-    var brushWidth: CGFloat = 10.0
-    //    var opacity: CGFloat = 1.0
+    var brushWidth: CGFloat = 5.0
+    var opacity: CGFloat = 1.0
     var swiped = false
     
     enum Colors : String {
@@ -61,7 +59,7 @@ class ViewController: UIViewController {
         context?.setBlendMode(CGBlendMode.normal)
         context?.setLineCap(CGLineCap.round)
         context?.setLineWidth(brushWidth)
-        context?.setStrokeColor(red: red, green: green, blue: blue, alpha : 1.0)
+        context?.setStrokeColor(red: red, green: green, blue: blue, alpha : opacity)
         // 4
         context?.strokePath()
         
@@ -130,6 +128,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func publish(_ sender: Any) {
+        UIGraphicsBeginImageContext(imageView.bounds.size)
+        imageView.image?.draw(in: CGRect(x: 0, y: 0, width: imageView.frame.size.width, height: imageView.frame.size.height))
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        let activity = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
+        present(activity, animated: true, completion: nil)
     }
     
     @IBAction func settings(_ sender: Any) {
@@ -140,6 +145,28 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        let settingsViewController = segue.destination as! SettingsViewController
+        settingsViewController.delegate = self
+        settingsViewController.red = red
+        settingsViewController.green = green
+        settingsViewController.blue = blue
+        
+        settingsViewController.brushWidth = brushWidth
+        settingsViewController.opacity = opacity
+    }
+}
+
+extension ViewController: SettingsViewControllerDelegate {
+    func settingsViewControllerFinished(settingsViewController: SettingsViewController) {
+        self.red = settingsViewController.red
+        self.green = settingsViewController.green
+        self.blue = settingsViewController.blue
+        
+        self.brushWidth = settingsViewController.brushWidth
+        self.opacity = settingsViewController.opacity
+    }
 }
 
